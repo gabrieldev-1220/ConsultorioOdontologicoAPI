@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wdgGXHMbLCI=",
+  "dgSpecHash": "M9uszWSCNl8=",
   "success": true,
   "projectFilePath": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\ConsultorioOdontologicoAPI.csproj",
   "expectedPackageFiles": [
@@ -77,6 +77,7 @@
     "C:\\Users\\gabri\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\mono.texttemplating\\3.0.0\\mono.texttemplating.3.0.0.nupkg.sha512",
+    "C:\\Users\\gabri\\.nuget\\packages\\questpdf\\2024.10.0\\questpdf.2024.10.0.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\swashbuckle.aspnetcore\\9.0.3\\swashbuckle.aspnetcore.9.0.3.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\9.0.3\\swashbuckle.aspnetcore.swagger.9.0.3.nupkg.sha512",
     "C:\\Users\\gabri\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\9.0.3\\swashbuckle.aspnetcore.swaggergen.9.0.3.nupkg.sha512",

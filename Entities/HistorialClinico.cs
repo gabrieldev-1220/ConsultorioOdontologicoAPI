@@ -17,19 +17,41 @@ namespace ConsultorioOdontologicoAPI.Entities
         public int IdOdontologo { get; set; }
 
         [Required]
-        public DateTime Fecha { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
 
-        public string MotivoConsulta { get; set; }
-        public string Diagnostico { get; set; }
-        public string Observacion { get; set; }
+        public string? MotivoConsulta { get; set; }
+        public string? Diagnostico { get; set; }
+        public string? Observacion { get; set; }
+
+        // NO EXISTE EN BD → NO MAPEAR
+        [NotMapped]
+        public string? PlanTratamiento { get; set; }
+
+        // NO EXISTE EN BD → NO MAPEAR
+        [NotMapped]
+        public string? Archivos { get; set; } // JSON: [{"nombre":"rx1.jpg","ruta":"..."}]
 
         // Relaciones
         [ForeignKey("IdPaciente")]
-        public Paciente Paciente { get; set; }
+        public Paciente? Paciente { get; set; }
 
         [ForeignKey("IdOdontologo")]
-        public Odontologo Odontologo { get; set; }
+        public Odontologo? Odontologo { get; set; }
 
-        public List<HistorialTratamiento> HistorialTratamientos { get; set; }
+        public List<HistorialTratamiento> HistorialTratamientos { get; set; } = new List<HistorialTratamiento>();
+        public List<EvolucionVisita> Evoluciones { get; set; } = new List<EvolucionVisita>();
+    }
+
+    public class EvolucionVisita
+    {
+        [Key]
+        public int IdEvolucion { get; set; }
+        public int IdHistorial { get; set; }
+        public DateTime Fecha { get; set; } = DateTime.Now;
+        public string? Descripcion { get; set; }
+        public string? Profesional { get; set; }
+
+        [ForeignKey("IdHistorial")]
+        public HistorialClinico? HistorialClinico { get; set; }
     }
 }
