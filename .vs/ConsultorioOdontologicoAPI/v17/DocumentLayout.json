@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|g:\\.net\\webapp\\proyectoodontologia\\consultorioodontologicoapi\\controllers\\historialclinicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|solutionrelative:controllers\\historialclinicocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|g:\\.net\\webapp\\proyectoodontologia\\consultorioodontologicoapi\\data\\consultorioodontologicocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|solutionrelative:data\\consultorioodontologicocontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|g:\\.net\\webapp\\proyectoodontologia\\consultorioodontologicoapi\\entities\\historialclinico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|solutionrelative:entities\\historialclinico.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|g:\\.net\\webapp\\proyectoodontologia\\consultorioodontologicoapi\\entities\\paciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|solutionrelative:entities\\paciente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|g:\\.net\\webapp\\proyectoodontologia\\consultorioodontologicoapi\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|g:\\.net\\webapp\\proyectoodontologia\\consultorioodontologicoapi\\entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|solutionrelative:entities\\usuario.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|g:\\.net\\webapp\\proyectoodontologia\\consultorioodontologicoapi\\dtos\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|solutionrelative:dtos\\loginrequestdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|g:\\.net\\webapp\\proyectoodontologia\\consultorioodontologicoapi\\dtos\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|solutionrelative:dtos\\loginresponsedto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|g:\\.net\\webapp\\proyectoodontologia\\consultorioodontologicoapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{30667D44-2EEE-476B-80C2-00954DE4797B}|ConsultorioOdontologicoAPI.csproj|g:\\.net\\webapp\\proyectoodontologia\\consultorioodontologicoapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -22,44 +42,106 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "HistorialClinico.cs",
-              "DocumentMoniker": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Entities\\HistorialClinico.cs",
-              "RelativeDocumentMoniker": "Entities\\HistorialClinico.cs",
-              "ToolTip": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Entities\\HistorialClinico.cs",
-              "RelativeToolTip": "Entities\\HistorialClinico.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAQwBQAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 0,
+              "Title": "ConsultorioOdontologicoContext.cs",
+              "DocumentMoniker": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Data\\ConsultorioOdontologicoContext.cs",
+              "RelativeDocumentMoniker": "Data\\ConsultorioOdontologicoContext.cs",
+              "ToolTip": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Data\\ConsultorioOdontologicoContext.cs",
+              "RelativeToolTip": "Data\\ConsultorioOdontologicoContext.cs",
+              "ViewState": "AgIAANYAAAAAAAAAAAAiwOkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T01:39:39.838Z"
+              "WhenOpened": "2025-10-30T15:27:21.782Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "HistorialClinicoController.cs",
-              "DocumentMoniker": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Controllers\\HistorialClinicoController.cs",
-              "RelativeDocumentMoniker": "Controllers\\HistorialClinicoController.cs",
-              "ToolTip": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Controllers\\HistorialClinicoController.cs",
-              "RelativeToolTip": "Controllers\\HistorialClinicoController.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAiwIEAAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Paciente.cs",
+              "DocumentMoniker": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Entities\\Paciente.cs",
+              "RelativeDocumentMoniker": "Entities\\Paciente.cs",
+              "ToolTip": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Entities\\Paciente.cs",
+              "RelativeToolTip": "Entities\\Paciente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T01:35:06.421Z",
+              "WhenOpened": "2025-10-30T15:26:44.921Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "AuthService.cs",
+              "DocumentMoniker": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Services\\AuthService.cs",
+              "RelativeDocumentMoniker": "Services\\AuthService.cs",
+              "ToolTip": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Services\\AuthService.cs",
+              "RelativeToolTip": "Services\\AuthService.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAiwEgAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:46:05.46Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-30T14:45:38.97Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LoginResponseDTO.cs",
+              "DocumentMoniker": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\DTOs\\LoginResponseDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\LoginResponseDTO.cs",
+              "ToolTip": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\DTOs\\LoginResponseDTO.cs",
+              "RelativeToolTip": "DTOs\\LoginResponseDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:41:37.33Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "LoginRequestDTO.cs",
+              "DocumentMoniker": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\DTOs\\LoginRequestDTO.cs",
+              "RelativeDocumentMoniker": "DTOs\\LoginRequestDTO.cs",
+              "ToolTip": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\DTOs\\LoginRequestDTO.cs",
+              "RelativeToolTip": "DTOs\\LoginRequestDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:41:20.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Usuario.cs",
+              "DocumentMoniker": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Entities\\Usuario.cs",
+              "RelativeDocumentMoniker": "Entities\\Usuario.cs",
+              "ToolTip": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Entities\\Usuario.cs",
+              "RelativeToolTip": "Entities\\Usuario.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAwwB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-30T14:40:41.521Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "Program.cs",
               "DocumentMoniker": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "G:\\.NET\\WebApp\\ProyectoOdontologia\\ConsultorioOdontologicoAPI\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAiwFkAAAADAAAAAAAAAA==",
+              "ViewState": "AgIAAGkAAAAAAAAAAAAiwI8AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-30T01:35:22.143Z"
+              "WhenOpened": "2025-10-30T14:40:22.522Z"
             }
           ]
         }

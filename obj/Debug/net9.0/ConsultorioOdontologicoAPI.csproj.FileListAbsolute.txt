@@ -687,3 +687,4 @@ G:\.NET\WebApp\ProyectoOdontologia\PruebaOdontograma\ConsultorioOdontologicoAPI\
 G:\.NET\WebApp\ProyectoOdontologia\PruebaOdontograma\ConsultorioOdontologicoAPI\obj\Debug\net9.0\ConsultorioOdontologicoAPI.pdb
 G:\.NET\WebApp\ProyectoOdontologia\PruebaOdontograma\ConsultorioOdontologicoAPI\obj\Debug\net9.0\ConsultorioOdontologicoAPI.genruntimeconfig.cache
 G:\.NET\WebApp\ProyectoOdontologia\PruebaOdontograma\ConsultorioOdontologicoAPI\obj\Debug\net9.0\ref\ConsultorioOdontologicoAPI.dll
+G:\.NET\WebApp\ProyectoOdontologia\ConsultorioOdontologicoAPI\obj\Debug\net9.0\ConsultorioOdontologicoAPI.sourcelink.json

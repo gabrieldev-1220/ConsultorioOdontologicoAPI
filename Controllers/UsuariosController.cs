@@ -2,7 +2,6 @@
 using ConsultorioOdontologicoAPI.DTOs;
 using ConsultorioOdontologicoAPI.Entities;
 using ConsultorioOdontologicoAPI.Interfaces;
-using ConsultorioOdontologicoAPI.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,7 +17,6 @@ namespace ConsultorioOdontologicoAPI.Controllers
         private readonly IAuthService _authService;
         private readonly ILogger<UsuariosController> _logger;
 
-        // CONSTRUCTOR
         public UsuariosController(ConsultorioOdontologicoContext context, IAuthService authService, ILogger<UsuariosController> logger)
         {
             _context = context;
@@ -31,13 +29,18 @@ namespace ConsultorioOdontologicoAPI.Controllers
         {
             try
             {
-                var response = await _authService.LoginAsync(loginRequest);
-                if (response == null)
+                if (string.IsNullOrEmpty(loginRequest.Username) || string.IsNullOrEmpty(loginRequest.Password))
                 {
-                    _logger.LogWarning("Intento de login fallido para usuario: {Username}", loginRequest.Username);
-                    return Unauthorized(new { message = "Credenciales inválidas" });
+                    return BadRequest(new { message = "Usuario y contraseña son obligatorios" });
                 }
+
+                var response = await _authService.LoginAsync(loginRequest);
                 return Ok(response);
+            }
+            catch (UnauthorizedAccessException)
+            {
+                _logger.LogWarning("Intento de login fallido para usuario: {Username}", loginRequest.Username);
+                return Unauthorized(new { message = "Credenciales inválidas" });
             }
             catch (Exception ex)
             {

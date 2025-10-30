@@ -25,7 +25,7 @@ namespace ConsultorioOdontologicoAPI.Services
         public async Task<LoginResponseDTO> LoginAsync(LoginRequestDTO loginRequest)
         {
             var usuario = await _context.Usuarios
-                .Include(u => u.Odontologo) // Incluir la relación con Odontologo
+                .Include(u => u.Odontologo)
                 .FirstOrDefaultAsync(u => u.Username == loginRequest.Username);
 
             if (usuario == null || !BCrypt.Net.BCrypt.Verify(loginRequest.Password, usuario.PasswordHash))
@@ -33,7 +33,6 @@ namespace ConsultorioOdontologicoAPI.Services
                 throw new UnauthorizedAccessException("Credenciales inválidas");
             }
 
-            // Obtener datos del odontólogo si existe
             string fullName = "Odontólogo Desconocido";
             string matricula = "N/A";
             if (usuario.IdOdontologo.HasValue && usuario.Odontologo != null)
@@ -48,8 +47,8 @@ namespace ConsultorioOdontologicoAPI.Services
                 Token = token,
                 Rol = usuario.Rol,
                 IdOdontologo = usuario.IdOdontologo,
-                FullName = fullName, // Añadir nombre completo
-                Matricula = matricula // Añadir matrícula
+                FullName = fullName,
+                Matricula = matricula
             };
         }
 
@@ -77,15 +76,24 @@ namespace ConsultorioOdontologicoAPI.Services
                 new Claim("IdOdontologo", usuario.IdOdontologo?.ToString() ?? string.Empty)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var keyBase64 = _configuration["Jwt:Key"];
+            var keyBytes = Convert.FromBase64String(keyBase64);
+            var key = new SymmetricSecurityKey(keyBytes);
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var expiryMinutes = 60;
+            var configMinutes = _configuration["Jwt:ExpiryInMinutes"];
+            if (!string.IsNullOrEmpty(configMinutes) && int.TryParse(configMinutes, out int parsed))
+            {
+                expiryMinutes = parsed;
+            }
 
             var token = new JwtSecurityToken
             (
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(double.Parse(_configuration["Jwt:ExpiryInMinutes"])),
+                expires: DateTime.Now.AddMinutes(expiryMinutes),
                 signingCredentials: creds
             );
 

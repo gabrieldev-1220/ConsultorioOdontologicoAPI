@@ -76,7 +76,7 @@ namespace ConsultorioOdontologicoAPI.Controllers
 
                 var historiales = await _context.HistorialClinico
                     .Include(h => h.Paciente)
-                    .Include(h => h.Odontologo)
+                    .Include(h => h.Odontologo) // AÑADIDO
                     .Where(h => h.IdPaciente == idPaciente)
                     .OrderByDescending(h => h.Fecha)
                     .ToListAsync();

@@ -23,7 +23,6 @@ namespace ConsultorioOdontologicoAPI.Entities
 
         public int? IdOdontologo { get; set; }
 
-        // Relaciones.
         [ForeignKey("IdOdontologo")]
         public Odontologo Odontologo { get; set; }
 

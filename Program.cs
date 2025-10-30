@@ -10,24 +10,55 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Agregar servicios al contenedor
+// === CONFIGURACIÓN DE JWT CON VALIDACIÓN ===
+var jwtConfig = builder.Configuration.GetSection("Jwt");
+var jwtKeyBase64 = jwtConfig["Key"];
+var jwtIssuer = jwtConfig["Issuer"];
+var jwtAudience = jwtConfig["Audience"];
+var expiryMinutes = 60;
+
+if (string.IsNullOrEmpty(jwtKeyBase64) ||
+    string.IsNullOrEmpty(jwtIssuer) ||
+    string.IsNullOrEmpty(jwtAudience))
+{
+    throw new InvalidOperationException("Configuración JWT incompleta en appsettings.json");
+}
+
+// Decodificar clave Base64
+byte[] keyBytes;
+try
+{
+    keyBytes = Convert.FromBase64String(jwtKeyBase64);
+}
+catch (FormatException)
+{
+    throw new InvalidOperationException("Jwt:Key debe estar en formato Base64 válido");
+}
+
+if (keyBytes.Length < 32)
+{
+    throw new InvalidOperationException("Jwt:Key debe tener al menos 256 bits (32 bytes) después de decodificar");
+}
+
+// === SERVICIOS ===
 builder.Services.AddControllers()
     .AddJsonOptions(options =>
     {
-        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles; // Cambiado para evitar $id y ciclos
-        options.JsonSerializerOptions.MaxDepth = 32; // Limitar profundidad para evitar bucles infinitos
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+        options.JsonSerializerOptions.MaxDepth = 32;
         options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
     });
+
 builder.Services.AddEndpointsApiExplorer();
 
-// Swagger con soporte para JWT
+// Swagger con JWT
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Consultorio Odontologico API", Version = "v1" });
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         In = ParameterLocation.Header,
-        Description = "Por favor ingrese el token JWT con el prefijo 'Bearer '",
+        Description = "Ingrese 'Bearer ' + token JWT",
         Name = "Authorization",
         Type = SecuritySchemeType.ApiKey
     });
@@ -43,20 +74,16 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-// Configuración de la base de datos
+// Base de datos
 builder.Services.AddDbContext<ConsultorioOdontologicoContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
-           .ConfigureWarnings(w => w.Ignore(RelationalEventId.MultipleCollectionIncludeWarning))); // Ignorar advertencia de múltiples Include
+           .ConfigureWarnings(w => w.Ignore(RelationalEventId.MultipleCollectionIncludeWarning)));
 
 // Inyección de dependencias
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IBitacoraService, BitacoraService>();
 
-// Configuración de JWT
-var jwtKey = builder.Configuration["Jwt:Key"];
-var jwtIssuer = builder.Configuration["Jwt:Issuer"];
-var jwtAudience = builder.Configuration["Jwt:Audience"];
-
+// JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -68,36 +95,34 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateIssuerSigningKey = true,
             ValidIssuer = jwtIssuer,
             ValidAudience = jwtAudience,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey))
+            IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
+            ClockSkew = TimeSpan.FromMinutes(1)
         };
     });
 
 builder.Services.AddAuthorization();
 
-// Configuración CORS para Angular
+// CORS para Angular
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAngularApp", policy =>
     {
-        policy.WithOrigins(
-                "http://localhost:4200",
-                "https://localhost:4200"
-            )
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            .AllowCredentials();
+        policy.WithOrigins("http://localhost:4200", "https://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
     });
 });
 
 var app = builder.Build();
 
-// Middleware para capturar excepciones
+// === MIDDLEWARE ===
 app.UseExceptionHandler(errorApp =>
 {
     errorApp.Run(async context =>
     {
         context.Response.StatusCode = StatusCodes.Status500InternalServerError;
-        await context.Response.WriteAsync("Ocurrió un error interno. Consulta los logs del servidor.");
+        await context.Response.WriteAsync("Error interno del servidor. Revisa los logs.");
     });
 });
 

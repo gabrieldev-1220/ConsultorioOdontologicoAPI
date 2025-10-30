@@ -21,140 +21,170 @@ namespace ConsultorioOdontologicoAPI.Data
         public DbSet<Procedimiento> Procedimientos { get; set; }
         public DbSet<PiezaDental> Odontograma { get; set; }
         public DbSet<PlanTratamiento> PlanesTratamiento { get; set; }
+        public DbSet<InformacionMedica> InformacionMedica { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Mapeo explícito de entidades a tablas existentes
-            modelBuilder.Entity<Paciente>().ToTable("pacientes");
-            modelBuilder.Entity<Paciente>().Property(p => p.IdPaciente).HasColumnName("id_paciente");
-            modelBuilder.Entity<Paciente>().Property(p => p.Nombre).HasColumnName("nombre");
-            modelBuilder.Entity<Paciente>().Property(p => p.Apellido).HasColumnName("apellido");
-            modelBuilder.Entity<Paciente>().Property(p => p.Dni).HasColumnName("dni");
-            modelBuilder.Entity<Paciente>().Property(p => p.FechaNacimiento).HasColumnName("fecha_nacimiento");
-            modelBuilder.Entity<Paciente>().Property(p => p.Telefono).HasColumnName("telefono");
-            modelBuilder.Entity<Paciente>().Property(p => p.Email).HasColumnName("email");
-            modelBuilder.Entity<Paciente>().Property(p => p.Direccion).HasColumnName("direccion");
-            modelBuilder.Entity<Paciente>().Property(p => p.FechaRegistro).HasColumnName("fecha_registro");
-            modelBuilder.Entity<Paciente>().Property(p => p.Activo).HasColumnName("activo");
+            // === PACIENTE ===
+            modelBuilder.Entity<Paciente>(entity =>
+            {
+                entity.ToTable("pacientes");
+                entity.HasKey(e => e.IdPaciente).HasName("PK_pacientes");
+                entity.Property(e => e.IdPaciente).HasColumnName("id_paciente").ValueGeneratedOnAdd();
+                entity.Property(e => e.Nombre).HasColumnName("nombre");
+                entity.Property(e => e.Apellido).HasColumnName("apellido");
+                entity.Property(e => e.Dni).HasColumnName("dni");
+                entity.Property(e => e.FechaNacimiento).HasColumnName("fecha_nacimiento");
+                entity.Property(e => e.Telefono).HasColumnName("telefono");
+                entity.Property(e => e.Email).HasColumnName("email");
+                entity.Property(e => e.Direccion).HasColumnName("direccion");
+                entity.Property(e => e.FechaRegistro).HasColumnName("fecha_registro");
+                entity.Property(e => e.Activo).HasColumnName("activo");
+            });
 
-            modelBuilder.Entity<Odontologo>().ToTable("odontologos");
-            modelBuilder.Entity<Odontologo>().Property(o => o.IdOdontologo).HasColumnName("id_odontologo");
-            modelBuilder.Entity<Odontologo>().Property(o => o.Nombre).HasColumnName("nombre");
-            modelBuilder.Entity<Odontologo>().Property(o => o.Apellido).HasColumnName("apellido");
-            modelBuilder.Entity<Odontologo>().Property(o => o.Matricula).HasColumnName("matricula");
-            modelBuilder.Entity<Odontologo>().Property(o => o.Telefono).HasColumnName("telefono");
-            modelBuilder.Entity<Odontologo>().Property(o => o.Email).HasColumnName("email");
-            modelBuilder.Entity<Odontologo>().Property(o => o.Especialidad).HasColumnName("especialidad");
+            // === ODONTÓLOGO ===
+            modelBuilder.Entity<Odontologo>(entity =>
+            {
+                entity.ToTable("odontologos");
+                entity.HasKey(e => e.IdOdontologo).HasName("PK_odontologos");
+                entity.Property(e => e.IdOdontologo).HasColumnName("id_odontologo").ValueGeneratedOnAdd();
+                entity.Property(e => e.Nombre).HasColumnName("nombre");
+                entity.Property(e => e.Apellido).HasColumnName("apellido");
+                entity.Property(e => e.Matricula).HasColumnName("matricula");
+                entity.Property(e => e.Telefono).HasColumnName("telefono");
+                entity.Property(e => e.Email).HasColumnName("email");
+                entity.Property(e => e.Especialidad).HasColumnName("especialidad");
+            });
 
-            modelBuilder.Entity<Turno>().ToTable("turnos");
-            modelBuilder.Entity<Turno>().Property(t => t.IdTurno).HasColumnName("id_turno");
-            modelBuilder.Entity<Turno>().Property(t => t.IdPaciente).HasColumnName("id_paciente");
-            modelBuilder.Entity<Turno>().Property(t => t.IdOdontologo).HasColumnName("id_odontologo");
-            modelBuilder.Entity<Turno>().Property(t => t.FechaHora).HasColumnName("fecha_hora").HasColumnType("datetime");
-            modelBuilder.Entity<Turno>().Property(t => t.Estado).HasColumnName("estado");
-            modelBuilder.Entity<Turno>().Property(t => t.Observaciones).HasColumnName("observaciones");
+            // === TURNO ===
+            modelBuilder.Entity<Turno>(entity =>
+            {
+                entity.ToTable("turnos");
+                entity.HasKey(e => e.IdTurno).HasName("PK_turnos");
+                entity.Property(e => e.IdTurno).HasColumnName("id_turno").ValueGeneratedOnAdd();
+                entity.Property(e => e.IdPaciente).HasColumnName("id_paciente");
+                entity.Property(e => e.IdOdontologo).HasColumnName("id_odontologo");
+                entity.Property(e => e.FechaHora).HasColumnName("fecha_hora").HasColumnType("datetime");
+                entity.Property(e => e.Estado).HasColumnName("estado");
+                entity.Property(e => e.Observaciones).HasColumnName("observaciones");
 
-            modelBuilder.Entity<HistorialClinico>().ToTable("historial_clinico");
-            modelBuilder.Entity<HistorialClinico>().Property(h => h.IdHistorial).HasColumnName("id_historial");
-            modelBuilder.Entity<HistorialClinico>().Property(h => h.IdPaciente).HasColumnName("id_paciente");
-            modelBuilder.Entity<HistorialClinico>().Property(h => h.IdOdontologo).HasColumnName("id_odontologo");
-            modelBuilder.Entity<HistorialClinico>().Property(h => h.Fecha).HasColumnName("fecha");
-            modelBuilder.Entity<HistorialClinico>().Property(h => h.MotivoConsulta).HasColumnName("motivo_consulta");
-            modelBuilder.Entity<HistorialClinico>().Property(h => h.Diagnostico).HasColumnName("diagnostico");
-            modelBuilder.Entity<HistorialClinico>().Property(h => h.Observacion).HasColumnName("observacion");
+                entity.HasOne(e => e.Paciente)
+                      .WithMany(p => p.Turnos)
+                      .HasForeignKey(e => e.IdPaciente);
 
-            modelBuilder.Entity<Tratamiento>().ToTable("tratamientos");
-            modelBuilder.Entity<Tratamiento>().Property(t => t.IdTratamiento).HasColumnName("id_tratamiento");
-            modelBuilder.Entity<Tratamiento>().Property(t => t.Nombre).HasColumnName("nombre");
-            modelBuilder.Entity<Tratamiento>().Property(t => t.Descripcion).HasColumnName("descripcion");
-            modelBuilder.Entity<Tratamiento>().Property(t => t.Precio).HasColumnName("precio").HasColumnType("decimal(10,2)");
+                entity.HasOne(e => e.Odontologo)
+                      .WithMany()
+                      .HasForeignKey(e => e.IdOdontologo);
+            });
 
-            modelBuilder.Entity<HistorialTratamiento>().ToTable("historial_tratamientos");
-            modelBuilder.Entity<HistorialTratamiento>().Property(h => h.IdHistorialTratamiento).HasColumnName("id_historial_tratamiento");
-            modelBuilder.Entity<HistorialTratamiento>().Property(h => h.IdHistorial).HasColumnName("id_historial");
-            modelBuilder.Entity<HistorialTratamiento>().Property(h => h.IdTratamiento).HasColumnName("id_tratamiento");
-            modelBuilder.Entity<HistorialTratamiento>().Property(h => h.Cantidad).HasColumnName("cantidad");
-            modelBuilder.Entity<HistorialTratamiento>().Property(h => h.PrecioUnitario).HasColumnName("precio_unitario").HasColumnType("decimal(10,2)");
+            // === HISTORIAL CLÍNICO ===
+            modelBuilder.Entity<HistorialClinico>(entity =>
+            {
+                entity.ToTable("historial_clinico");
+                entity.HasKey(e => e.IdHistorial).HasName("PK_historial_clinico");
+                entity.Property(e => e.IdHistorial).HasColumnName("id_historial").ValueGeneratedOnAdd();
+                entity.Property(e => e.IdPaciente).HasColumnName("id_paciente");
+                entity.Property(e => e.IdOdontologo).HasColumnName("id_odontologo");
+                entity.Property(e => e.Fecha).HasColumnName("fecha");
+                entity.Property(e => e.MotivoConsulta).HasColumnName("motivo_consulta");
+                entity.Property(e => e.Diagnostico).HasColumnName("diagnostico");
+                entity.Property(e => e.Observacion).HasColumnName("observacion");
 
-            modelBuilder.Entity<Pago>().ToTable("pagos");
-            modelBuilder.Entity<Pago>().Property(p => p.IdPago).HasColumnName("id_pago");
-            modelBuilder.Entity<Pago>().Property(p => p.IdPaciente).HasColumnName("id_paciente");
-            modelBuilder.Entity<Pago>().Property(p => p.FechaPago).HasColumnName("fecha_pago");
-            modelBuilder.Entity<Pago>().Property(p => p.Monto).HasColumnName("monto").HasColumnType("decimal(10,2)");
-            modelBuilder.Entity<Pago>().Property(p => p.MetodoPago).HasColumnName("metodo_pago");
-            modelBuilder.Entity<Pago>().Property(p => p.Observaciones).HasColumnName("observaciones");
+                entity.HasOne(e => e.Paciente)
+                      .WithMany(p => p.Historiales)
+                      .HasForeignKey(e => e.IdPaciente);
 
-            modelBuilder.Entity<Usuario>().ToTable("usuarios");
-            modelBuilder.Entity<Usuario>().Property(u => u.IdUsuario).HasColumnName("id_usuario");
-            modelBuilder.Entity<Usuario>().Property(u => u.Username).HasColumnName("username");
-            modelBuilder.Entity<Usuario>().Property(u => u.PasswordHash).HasColumnName("password_hash");
-            modelBuilder.Entity<Usuario>().Property(u => u.Rol).HasColumnName("rol");
-            modelBuilder.Entity<Usuario>().Property(u => u.IdOdontologo).HasColumnName("id_odontologo");
+                entity.HasOne(e => e.Odontologo)
+                      .WithMany()
+                      .HasForeignKey(e => e.IdOdontologo);
+            });
 
-            modelBuilder.Entity<Bitacora>().ToTable("bitacora");
-            modelBuilder.Entity<Bitacora>().Property(b => b.IdBitacora).HasColumnName("id_bitacora");
-            modelBuilder.Entity<Bitacora>().Property(b => b.IdUsuario).HasColumnName("id_usuario");
-            modelBuilder.Entity<Bitacora>().Property(b => b.Accion).HasColumnName("accion");
-            modelBuilder.Entity<Bitacora>().Property(b => b.Fecha).HasColumnName("fecha");
-            modelBuilder.Entity<Bitacora>().Property(b => b.Detalles).HasColumnName("detalles");
+            // === TRATAMIENTO ===
+            modelBuilder.Entity<Tratamiento>(entity =>
+            {
+                entity.ToTable("tratamientos");
+                entity.HasKey(e => e.IdTratamiento).HasName("PK_tratamientos");
+                entity.Property(e => e.IdTratamiento).HasColumnName("id_tratamiento").ValueGeneratedOnAdd();
+                entity.Property(e => e.Nombre).HasColumnName("nombre");
+                entity.Property(e => e.Descripcion).HasColumnName("descripcion");
+                entity.Property(e => e.Precio).HasColumnName("precio").HasColumnType("decimal(10,2)");
+            });
 
-            // Configuración de relaciones (claves foráneas)
-            modelBuilder.Entity<Turno>()
-                .HasOne(t => t.Paciente)
-                .WithMany(p => p.Turnos)
-                .HasForeignKey(t => t.IdPaciente);
+            // === HISTORIAL TRATAMIENTO ===
+            modelBuilder.Entity<HistorialTratamiento>(entity =>
+            {
+                entity.ToTable("historial_tratamientos");
+                entity.HasKey(e => e.IdHistorialTratamiento).HasName("PK_historial_tratamientos");
+                entity.Property(e => e.IdHistorialTratamiento).HasColumnName("id_historial_tratamiento").ValueGeneratedOnAdd();
+                entity.Property(e => e.IdHistorial).HasColumnName("id_historial");
+                entity.Property(e => e.IdTratamiento).HasColumnName("id_tratamiento");
+                entity.Property(e => e.Cantidad).HasColumnName("cantidad");
+                entity.Property(e => e.PrecioUnitario).HasColumnName("precio_unitario").HasColumnType("decimal(10,2)");
 
-            modelBuilder.Entity<Turno>()
-                .HasOne(t => t.Odontologo)
-                .WithMany()
-                .HasForeignKey(t => t.IdOdontologo);
+                entity.HasOne(e => e.HistorialClinico)
+                      .WithMany(h => h.HistorialTratamientos)
+                      .HasForeignKey(e => e.IdHistorial);
 
-            modelBuilder.Entity<HistorialClinico>()
-                .HasOne(h => h.Paciente)
-                .WithMany(p => p.Historiales)
-                .HasForeignKey(h => h.IdPaciente);
+                entity.HasOne(e => e.Tratamiento)
+                      .WithMany()
+                      .HasForeignKey(e => e.IdTratamiento);
+            });
 
-            modelBuilder.Entity<HistorialClinico>()
-                .HasOne(h => h.Odontologo)
-                .WithMany()
-                .HasForeignKey(h => h.IdOdontologo);
+            // === PAGO ===
+            modelBuilder.Entity<Pago>(entity =>
+            {
+                entity.ToTable("pagos");
+                entity.HasKey(e => e.IdPago).HasName("PK_pagos");
+                entity.Property(e => e.IdPago).HasColumnName("id_pago").ValueGeneratedOnAdd();
+                entity.Property(e => e.IdPaciente).HasColumnName("id_paciente");
+                entity.Property(e => e.FechaPago).HasColumnName("fecha_pago");
+                entity.Property(e => e.Monto).HasColumnName("monto").HasColumnType("decimal(10,2)");
+                entity.Property(e => e.MetodoPago).HasColumnName("metodo_pago");
+                entity.Property(e => e.Observaciones).HasColumnName("observaciones");
 
-            modelBuilder.Entity<HistorialTratamiento>()
-                .HasOne(h => h.HistorialClinico)
-                .WithMany(h => h.HistorialTratamientos)
-                .HasForeignKey(h => h.IdHistorial);
+                entity.HasOne(e => e.Paciente)
+                      .WithMany(p => p.Pagos)
+                      .HasForeignKey(e => e.IdPaciente);
+            });
 
-            modelBuilder.Entity<HistorialTratamiento>()
-                .HasOne(h => h.Tratamiento)
-                .WithMany()
-                .HasForeignKey(h => h.IdTratamiento);
+            // === USUARIO ===
+            modelBuilder.Entity<Usuario>(entity =>
+            {
+                entity.ToTable("usuarios");
+                entity.HasKey(e => e.IdUsuario).HasName("PK_usuarios");
+                entity.Property(e => e.IdUsuario).HasColumnName("id_usuario").ValueGeneratedOnAdd();
+                entity.Property(e => e.Username).HasColumnName("username");
+                entity.Property(e => e.PasswordHash).HasColumnName("password_hash");
+                entity.Property(e => e.Rol).HasColumnName("rol");
+                entity.Property(e => e.IdOdontologo).HasColumnName("id_odontologo");
 
-            modelBuilder.Entity<Pago>()
-                .HasOne(p => p.Paciente)
-                .WithMany(p => p.Pagos)
-                .HasForeignKey(p => p.IdPaciente);
+                entity.HasOne(e => e.Odontologo)
+                      .WithMany()
+                      .HasForeignKey(e => e.IdOdontologo);
+            });
 
-            modelBuilder.Entity<Usuario>()
-                .HasOne(u => u.Odontologo)
-                .WithMany()
-                .HasForeignKey(u => u.IdOdontologo);
+            // === BITÁCORA ===
+            modelBuilder.Entity<Bitacora>(entity =>
+            {
+                entity.ToTable("bitacora");
+                entity.HasKey(e => e.IdBitacora).HasName("PK_bitacora");
+                entity.Property(e => e.IdBitacora).HasColumnName("id_bitacora").ValueGeneratedOnAdd();
+                entity.Property(e => e.IdUsuario).HasColumnName("id_usuario");
+                entity.Property(e => e.Accion).HasColumnName("accion");
+                entity.Property(e => e.Fecha).HasColumnName("fecha");
+                entity.Property(e => e.Detalles).HasColumnName("detalles");
 
-            modelBuilder.Entity<Bitacora>()
-                .HasOne(b => b.Usuario)
-                .WithMany(u => u.Bitacoras)
-                .HasForeignKey(b => b.IdUsuario);
+                entity.HasOne(e => e.Usuario)
+                      .WithMany(u => u.Bitacoras)
+                      .HasForeignKey(e => e.IdUsuario);
+            });
 
-            // Mapear la entidad PiezaDental a la tabla odontograma
+            // === PIEZA DENTAL (ODONTOGRAMA) ===
             modelBuilder.Entity<PiezaDental>(entity =>
             {
                 entity.ToTable("odontograma");
-
                 entity.HasKey(e => e.IdPieza).HasName("PK_Odontograma");
-
-                entity.Property(e => e.IdPieza)
-                    .HasColumnName("id_pieza")
-                    .ValueGeneratedOnAdd();
-
+                entity.Property(e => e.IdPieza).HasColumnName("id_pieza").ValueGeneratedOnAdd();
                 entity.Property(e => e.IdPaciente).HasColumnName("id_paciente");
                 entity.Property(e => e.NumeroPieza).HasColumnName("numero_pieza");
                 entity.Property(e => e.Color).HasColumnName("color").HasMaxLength(20);
@@ -165,6 +195,7 @@ namespace ConsultorioOdontologicoAPI.Data
                       .HasDefaultValueSql("GETDATE()");
             });
 
+            // === PROCEDIMIENTO ===
             modelBuilder.Entity<Procedimiento>(entity =>
             {
                 entity.ToTable("procedimientos");
@@ -177,30 +208,44 @@ namespace ConsultorioOdontologicoAPI.Data
                 entity.Property(e => e.Activo).HasColumnName("activo");
             });
 
-            // Mapear la entidad PlanTratamiento a la tabla planes_tratamiento
+            // === PLAN TRATAMIENTO ===
             modelBuilder.Entity<PlanTratamiento>(entity =>
             {
                 entity.ToTable("planes_tratamiento");
-
                 entity.HasKey(e => e.IdPlanTratamiento).HasName("PK_PlanesTratamiento");
-
-                entity.Property(e => e.IdPlanTratamiento)
-                    .HasColumnName("id_plan_tratamiento")
-                    .ValueGeneratedOnAdd();
-
+                entity.Property(e => e.IdPlanTratamiento).HasColumnName("id_plan_tratamiento").ValueGeneratedOnAdd();
                 entity.Property(e => e.IdPaciente).HasColumnName("id_paciente");
                 entity.Property(e => e.IdProcedimiento).HasColumnName("id_procedimiento");
                 entity.Property(e => e.FechaPlan).HasColumnName("fecha_plan").HasDefaultValueSql("GETDATE()");
                 entity.Property(e => e.Estado).HasColumnName("estado").HasMaxLength(20);
                 entity.Property(e => e.Observaciones).HasColumnName("observaciones");
 
-                entity.HasOne(pt => pt.Paciente)
-                    .WithMany(p => p.PlanesTratamiento)
-                    .HasForeignKey(pt => pt.IdPaciente);
+                entity.HasOne(e => e.Paciente)
+                      .WithMany(p => p.PlanesTratamiento)
+                      .HasForeignKey(e => e.IdPaciente);
 
-                entity.HasOne(pt => pt.Procedimiento)
-                    .WithMany()
-                    .HasForeignKey(pt => pt.IdProcedimiento);
+                entity.HasOne(e => e.Procedimiento)
+                      .WithMany()
+                      .HasForeignKey(e => e.IdProcedimiento);
+            });
+
+            // === INFORMACIÓN MÉDICA ===
+            modelBuilder.Entity<InformacionMedica>(entity =>
+            {
+                entity.ToTable("informacion_medica");
+                entity.HasKey(e => e.IdInformacion).HasName("PK_informacion_medica");
+                entity.Property(e => e.IdInformacion).HasColumnName("id_informacion").ValueGeneratedOnAdd();
+                entity.Property(e => e.IdPaciente).HasColumnName("id_paciente");
+                entity.Property(e => e.Alergias).HasColumnName("alergias");
+                entity.Property(e => e.MedicacionesActuales).HasColumnName("medicaciones_actuales");
+                entity.Property(e => e.AntecedentesMedicos).HasColumnName("antecedentes_medicos");
+                entity.Property(e => e.AntecedentesOdontologicos).HasColumnName("antecedentes_odontologicos");
+                entity.Property(e => e.Habitos).HasColumnName("habitos");
+                entity.Property(e => e.ObservacionesMedicas).HasColumnName("observaciones_medicas");
+
+                entity.HasOne(e => e.Paciente)
+                      .WithMany(p => p.InformacionMedica)
+                      .HasForeignKey(e => e.IdPaciente);
             });
         }
     }

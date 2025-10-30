@@ -5,7 +5,7 @@
         public string Token { get; set; }
         public string Rol { get; set; }
         public int? IdOdontologo { get; set; }
-        public string FullName { get; set; } // Nuevo campo para nombre completo
-        public string Matricula { get; set; } // Nuevo campo para matrícula
+        public string FullName { get; set; }
+        public string Matricula { get; set; }
     }
 }
