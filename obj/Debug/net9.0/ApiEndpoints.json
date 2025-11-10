@@ -1,0 +1,1383 @@
+[
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.BitacoraController",
+    "Method": "GetBitacora",
+    "RelativePath": "api/Bitacora",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.Bitacora, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.BitacoraController",
+    "Method": "GetBitacoraEntry",
+    "RelativePath": "api/Bitacora/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.Bitacora",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.HistorialClinicoController",
+    "Method": "Get",
+    "RelativePath": "api/HistorialClinico",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.HistorialClinicoController",
+    "Method": "CreateHistorial",
+    "RelativePath": "api/HistorialClinico",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "IdPaciente",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "IdOdontologo",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "MotivoConsulta",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Diagnostico",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "Observacion",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "PlanTratamiento",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "archivos",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile[]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.HistorialClinico",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.HistorialClinicoController",
+    "Method": "GetHistorial",
+    "RelativePath": "api/HistorialClinico/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.HistorialClinico",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.HistorialClinicoController",
+    "Method": "GenerarPdf",
+    "RelativePath": "api/HistorialClinico/{id}/pdf",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.HistorialClinicoController",
+    "Method": "GetHistorialesPorPaciente",
+    "RelativePath": "api/HistorialClinico/pacientes/{idPaciente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPaciente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.HistorialClinico, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.HistorialTratamientosController",
+    "Method": "GetHistorialTratamientos",
+    "RelativePath": "api/HistorialTratamientos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.HistorialTratamiento, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.HistorialTratamientosController",
+    "Method": "CreateHistorialTratamiento",
+    "RelativePath": "api/HistorialTratamientos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "historialTratamiento",
+        "Type": "ConsultorioOdontologicoAPI.Entities.HistorialTratamiento",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.HistorialTratamiento",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.HistorialTratamientosController",
+    "Method": "GetHistorialTratamiento",
+    "RelativePath": "api/HistorialTratamientos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.HistorialTratamiento",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.HistorialTratamientosController",
+    "Method": "UpdateHistorialTratamiento",
+    "RelativePath": "api/HistorialTratamientos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "historialTratamiento",
+        "Type": "ConsultorioOdontologicoAPI.Entities.HistorialTratamiento",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.InformacionMedicaController",
+    "Method": "Crear",
+    "RelativePath": "api/InformacionMedica",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "info",
+        "Type": "ConsultorioOdontologicoAPI.Entities.InformacionMedica",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.InformacionMedica",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.InformacionMedicaController",
+    "Method": "Actualizar",
+    "RelativePath": "api/InformacionMedica/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "info",
+        "Type": "ConsultorioOdontologicoAPI.Entities.InformacionMedica",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.InformacionMedicaController",
+    "Method": "GetPorPaciente",
+    "RelativePath": "api/InformacionMedica/paciente/{idPaciente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPaciente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.InformacionMedica",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.OdontogramaController",
+    "Method": "GetPorPaciente",
+    "RelativePath": "api/Odontograma/{idPaciente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPaciente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.PiezaDental, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.OdontogramaController",
+    "Method": "CrearInicial",
+    "RelativePath": "api/Odontograma/{idPaciente}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPaciente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.PiezaDental, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.OdontogramaController",
+    "Method": "ActualizarPorPaciente",
+    "RelativePath": "api/Odontograma/{idPaciente}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPaciente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "piezasActualizadas",
+        "Type": "System.Collections.Generic.List\u00601[[ConsultorioOdontologicoAPI.Entities.PiezaDental, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.OdontogramaController",
+    "Method": "EliminarPorPaciente",
+    "RelativePath": "api/Odontograma/{idPaciente}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPaciente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.OdontologoController",
+    "Method": "GetOdontologico",
+    "RelativePath": "api/Odontologo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.Odontologo, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.OdontologoController",
+    "Method": "CreateOdontologo",
+    "RelativePath": "api/Odontologo",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "odontologo",
+        "Type": "ConsultorioOdontologicoAPI.Entities.Odontologo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.Odontologo",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.OdontologoController",
+    "Method": "GetOdontologo",
+    "RelativePath": "api/Odontologo/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.Odontologo",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.OdontologoController",
+    "Method": "UpdateOdontologo",
+    "RelativePath": "api/Odontologo/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "odontologo",
+        "Type": "ConsultorioOdontologicoAPI.Entities.Odontologo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.OdontologoController",
+    "Method": "SearchOdontologo",
+    "RelativePath": "api/Odontologo/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.Odontologo, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.PacientesController",
+    "Method": "GetPacientes",
+    "RelativePath": "api/Pacientes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "odontologoId",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.Paciente, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.PacientesController",
+    "Method": "CreatePaciente",
+    "RelativePath": "api/Pacientes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "paciente",
+        "Type": "ConsultorioOdontologicoAPI.Entities.Paciente",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.Paciente",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.PacientesController",
+    "Method": "UpdatePaciente",
+    "RelativePath": "api/Pacientes",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "paciente",
+        "Type": "ConsultorioOdontologicoAPI.Entities.Paciente",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.PacientesController",
+    "Method": "GetPaciente",
+    "RelativePath": "api/Pacientes/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.Paciente",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.PacientesController",
+    "Method": "GetHistorial",
+    "RelativePath": "api/Pacientes/{id}/historial",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.HistorialClinico, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.PacientesController",
+    "Method": "ToggleActivo",
+    "RelativePath": "api/Pacientes/{id}/toggle-activo",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.PacientesController",
+    "Method": "SearchPacientes",
+    "RelativePath": "api/Pacientes/search",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "query",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.Paciente, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.PagosController",
+    "Method": "GetPagos",
+    "RelativePath": "api/Pagos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.Pago, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.PagosController",
+    "Method": "CreatePago",
+    "RelativePath": "api/Pagos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "pago",
+        "Type": "ConsultorioOdontologicoAPI.Entities.Pago",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.Pago",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.PagosController",
+    "Method": "GetPago",
+    "RelativePath": "api/Pagos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.Pago",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.PagosController",
+    "Method": "GetPagosPorPaciente",
+    "RelativePath": "api/Pagos/paciente/{idPaciente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPaciente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.Pago, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.PlanesTratamientoController",
+    "Method": "CrearOActualizarPlan",
+    "RelativePath": "api/PlanesTratamiento/{idPaciente}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPaciente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "payload",
+        "Type": "ConsultorioOdontologicoAPI.Controllers.PlanTratamientoRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.PlanesTratamientoController",
+    "Method": "GetPorPaciente",
+    "RelativePath": "api/PlanesTratamiento/{idPaciente}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idPaciente",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Controllers.PlanTratamientoResponse",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.ProcedimientosController",
+    "Method": "GetAll",
+    "RelativePath": "api/Procedimientos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.Procedimiento, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.ProcedimientosController",
+    "Method": "GetCategorias",
+    "RelativePath": "api/Procedimientos/categorias",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.ReportesController",
+    "Method": "GetDeudasPendientes",
+    "RelativePath": "api/Reportes/deudas-pendientes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.ReportesController",
+    "Method": "GetIngresos",
+    "RelativePath": "api/Reportes/ingresos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "startDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "endDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Decimal",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.ReportesController",
+    "Method": "GetPacientesAtendidos",
+    "RelativePath": "api/Reportes/pacientes-atendidos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "startDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      },
+      {
+        "Name": "endDate",
+        "Type": "System.DateTime",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.HistorialClinico, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.ReportesController",
+    "Method": "GetTurnosPorOdontologo",
+    "RelativePath": "api/Reportes/turnos-por-odontologo",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idOdontologo",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "estado",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.Turno, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.TratamientosController",
+    "Method": "GetTratamientos",
+    "RelativePath": "api/Tratamientos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.Tratamiento, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.TratamientosController",
+    "Method": "CreateTratamiento",
+    "RelativePath": "api/Tratamientos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "tratamiento",
+        "Type": "ConsultorioOdontologicoAPI.Entities.Tratamiento",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.Tratamiento",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.TratamientosController",
+    "Method": "GetTratamiento",
+    "RelativePath": "api/Tratamientos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.Tratamiento",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.TratamientosController",
+    "Method": "UpdateTratamiento",
+    "RelativePath": "api/Tratamientos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "tratamiento",
+        "Type": "ConsultorioOdontologicoAPI.Entities.Tratamiento",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.TurnosController",
+    "Method": "GetTurnos",
+    "RelativePath": "api/Turnos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.Turno, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.TurnosController",
+    "Method": "CreateTurno",
+    "RelativePath": "api/Turnos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "turno",
+        "Type": "ConsultorioOdontologicoAPI.Entities.Turno",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.Turno",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.TurnosController",
+    "Method": "GetTurno",
+    "RelativePath": "api/Turnos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.Turno",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.TurnosController",
+    "Method": "UpdateTurno",
+    "RelativePath": "api/Turnos/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "turno",
+        "Type": "ConsultorioOdontologicoAPI.Entities.Turno",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.TurnosController",
+    "Method": "CancelarTurno",
+    "RelativePath": "api/Turnos/{id}/cancelar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.TurnosController",
+    "Method": "GetAgenda",
+    "RelativePath": "api/Turnos/agenda",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "startDate",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "endDate",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "idOdontologo",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "estado",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.Turno, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.UsuariosController",
+    "Method": "GetUsuarios",
+    "RelativePath": "api/Usuarios",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.Entities.Usuario, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.UsuariosController",
+    "Method": "GetUsuario",
+    "RelativePath": "api/Usuarios/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.Entities.Usuario",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.UsuariosController",
+    "Method": "Login",
+    "RelativePath": "api/Usuarios/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequest",
+        "Type": "ConsultorioOdontologicoAPI.DTOs.LoginRequestDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "ConsultorioOdontologicoAPI.DTOs.LoginResponseDTO",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.UsuariosController",
+    "Method": "Register",
+    "RelativePath": "api/Usuarios/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "usuarioDTO",
+        "Type": "ConsultorioOdontologicoAPI.DTOs.UsuarioDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ConsultorioOdontologicoAPI.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[ConsultorioOdontologicoAPI.WeatherForecast, ConsultorioOdontologicoAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ],
+    "EndpointName": "GetWeatherForecast"
+  }
+]
